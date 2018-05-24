@@ -4,12 +4,17 @@
 ```
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 ---
 
-## Arrival times -- All trips ##
+## Arrival times - All trips ##
 ```
-python arrival_times.py <path-to-events.xml>
+python arrival-times.py <path-to-events.xml>
+```
+
+## Vehicle troughput in a single link ##
+```
+python vehicle-throughput.py <path-to-events.xml> <link-id>
 ```
