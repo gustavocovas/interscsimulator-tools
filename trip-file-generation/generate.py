@@ -35,37 +35,37 @@ def trip_to_xml(trip):
 
 print("<scsimulator_matrix>")
 
-dr_ratio = 1
+dr_ratio = 0
 
 regular_trips = 1980 * (1-dr_ratio)
 dr_trips = 1980 * dr_ratio
 
 paraiso_regular_trips = generate_trips_uniform(
   name='paraiso_regular_', origin='1952545091', destination='60609874', link_origin='872', 
-  cars_per_trip=1, time_span_seconds=3600, time_offset_seconds=112, cars_per_hour=regular_trips
+  cars_per_trip=1, time_span_seconds=3600, time_offset_seconds=112, cars_per_hour=2359
 )
 for trip_xml in map(trip_to_xml, paraiso_regular_trips):
   print(trip_xml)  
 
-paraiso_dr_trips = generate_trips_convoy(
-  name='paraiso_dr_', origin='1952545091', destination='60609874', link_origin='872', 
-  cars_per_trip=int(dr_trips/(3600/120)), time_span_seconds=3600, time_offset_seconds=112, cars_per_hour=dr_trips
-)
-for trip_xml in map(trip_to_xml, paraiso_dr_trips):
-  print(trip_xml)  
+# paraiso_dr_trips = generate_trips_convoy(
+#   name='paraiso_dr_', origin='1952545091', destination='60609874', link_origin='872', 
+#   cars_per_trip=int(dr_trips/(3600/120)), time_span_seconds=3600, time_offset_seconds=112, cars_per_hour=dr_trips
+# )
+# for trip_xml in map(trip_to_xml, paraiso_dr_trips):
+#   print(trip_xml)  
 
 consolacao_regular_trips = generate_trips_uniform(
   name='consolacao_regular', origin='60609819', destination='1421376041', link_origin='1425', 
-  cars_per_trip=1, time_span_seconds=3600, time_offset_seconds=115, cars_per_hour=regular_trips
+  cars_per_trip=1, time_span_seconds=3600, time_offset_seconds=115, cars_per_hour=3067
 )
 for trip_xml in map(trip_to_xml, consolacao_regular_trips):
   print(trip_xml)  
 
-consolacao_dr_trips = generate_trips_convoy(
-  name='consolacao_dr_', origin='60609819', destination='1421376041', link_origin='1425', 
-  cars_per_trip=int(dr_trips/(3600/120)), time_span_seconds=3600, time_offset_seconds=115, cars_per_hour=dr_trips
-)
-for trip_xml in map(trip_to_xml, consolacao_dr_trips):
-  print(trip_xml)  
+# consolacao_dr_trips = generate_trips_convoy(
+#   name='consolacao_dr_', origin='60609819', destination='1421376041', link_origin='1425', 
+#   cars_per_trip=int(dr_trips/(3600/120)), time_span_seconds=3600, time_offset_seconds=115, cars_per_hour=dr_trips
+# )
+# for trip_xml in map(trip_to_xml, consolacao_dr_trips):
+#   print(trip_xml)  
 
 print("</scsimulator_matrix>")
