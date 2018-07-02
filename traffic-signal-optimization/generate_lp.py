@@ -1,9 +1,12 @@
-n = 13
+n = 13  # Number of signals
 cycle_seconds = 150.0
 
+# Red times for inbound and outbound streams.
+# In the example below, all signals have the same red time
 inbound_r_seconds = 13 * [cycle_seconds/2]
 outbound_r_seconds = 13 * [cycle_seconds/2]
 
+# Travel time between each node of inbound and outbound streams:
 inbound_t_seconds = [
   9.36,
   8.64,
@@ -38,6 +41,7 @@ assert len(outbound_r_seconds) == n
 assert len(inbound_t_seconds) == n - 1
 assert len(outbound_t_seconds) == n - 1
 
+# Convert times to cycle units:
 sec_to_cycle = lambda t: float(t)/cycle_seconds
 r = list(map(sec_to_cycle, inbound_r_seconds))
 rl = list(map(sec_to_cycle, outbound_r_seconds))
@@ -45,6 +49,7 @@ rl = list(map(sec_to_cycle, outbound_r_seconds))
 t = list(map(sec_to_cycle, inbound_t_seconds))
 tl = list(map(sec_to_cycle, outbound_t_seconds))
 
+# Print the input for lp_solve:
 print('max: b;')
 print('bl = b;')
 for i in range(n):
@@ -68,5 +73,3 @@ for i in range(1, n):
 integer_cons += ';'
 
 print(integer_cons)
-
-
