@@ -1,5 +1,5 @@
 n = 13  # Number of signals
-cycle_seconds = 150.0
+cycle_seconds = 90.0
 
 # Red times for inbound and outbound streams.
 # In the example below, all signals have the same red time
