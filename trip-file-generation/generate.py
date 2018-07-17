@@ -1,3 +1,5 @@
+import sys
+
 import numpy as np
 
 cycle = 90
@@ -37,7 +39,7 @@ def trip_to_xml(trip):
 
 print("<scsimulator_matrix>")
 
-dr_ratio = 0.75
+dr_ratio = float(sys.argv[1])
 
 paraiso_regular_cars = 2359 * (1-dr_ratio)
 paraiso_dr_cars = 2359 * dr_ratio
